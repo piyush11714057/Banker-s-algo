@@ -13,19 +13,6 @@ int max [N][M];
 int need [N][M];
 void displayInput();
 void *process(void* procsID);
-alloc[5][3] = { { 0, 1, 0 }, // P0    // Allocation Matrix 
-                { 2, 0, 0 }, // P1 
-                { 3, 0, 2 }, // P2 
-                { 2, 1, 1 }, // P3 
-                { 0, 0, 2 } }; // P4 
-  
-max[5][3] = { { 7, 5, 3 }, // P0    // MAX Matrix 
-              { 3, 2, 2 }, // P1 
-              { 9, 0, 2 }, // P2 
-              { 2, 2, 2 }, // P3 
-              { 4, 3, 3 } }; // P4 
-              
-avail[3] = { 3, 3, 2 }; // Available Resources 
    void displayInput()
    {
    	
@@ -65,7 +52,45 @@ avail[3] = { 3, 3, 2 }; // Available Resources
 	int pID = *(int*)procsID;	
 	}          
   int main()
-  {
+  {  printf("Enter available VECTOR\n");
+            
+            for(i = 0; i < M; i++)
+            {
+                        
+                        scanf("%d",&init[i]);
+                        avail[i] = init[i];
+            }
+       printf("Enter Allocation Matrix\n");
+            for(i = 0; i < N; i++)
+            {
+                         
+            for(j = 0; j< M; j++)
+            {
+                        
+                        scanf("%d",&alloc [i][j]);
+                        
+            }
+            }
+       printf("Enter MAX Matrix");
+            for(i = 0; i < N; i++)
+            {
+                         
+            for(j = 0; j< M; j++)
+            {
+                       
+                        scanf("%d",&max[i][j]);
+                        
+            }
+            }
+
+            
+            for (i = 0; i < N; ++i)
+            {
+                        for (j = 0; j < M; ++j)
+                        {
+                                    need[i][j] = max[i][j] - alloc[i][j];
+                        }
+            }
     pthread_mutex_init(&mutex1,NULL);
     pthread_attr_t attrDefault;
     pthread_attr_init(&attrDefault);
