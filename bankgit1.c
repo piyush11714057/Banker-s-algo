@@ -72,26 +72,36 @@ pthread_mutex_lock(&mutex1);
         printf("\n--> Process  %d", p+1);
         printf("\n\t Allocated is : ");
         for(i=0; i<M; i++)
-                printf("%3d", alloc[p][i]);
-
+        {
+        	
+		        printf("%3d", alloc[p][i]);
+		}
         printf("\n\tNeeded is    : ");
         for( i=0; i<M; i++)
+        {
+		
                 printf("%3d", need[p][i]);
-
+		}
         printf("\n\tAvailable are : ");
         for(i=0; i<M; i++)
+        {
+		
                 printf("%3d", avail[i]);
-
+ 		}
         printf("\n"); sleep(1);
 
         printf("\tResource Allocated!");
-        printf("\n"); sleep(1);
+        printf("\n"); 
+		sleep(1);
         printf("\tProcess Code Running...");
-        printf("\n"); sleep(1); // process code
+        printf("\n"); 
+		sleep(1); // process code
         printf("\tProcess Code Completed...");
-        printf("\n"); sleep(1);
+        printf("\n"); 
+		sleep(1);
         printf("\tProcess Releasing Resource...");
-        printf("\n"); sleep(1);
+        printf("\n"); 
+		sleep(1);
         printf("\tResource Released!");
 
 	for( i=0; i<M; i++)
@@ -112,7 +122,7 @@ pthread_mutex_lock(&mutex1);
         sleep(10);
 	//pthread_exit(NULL);	
 	}   
-	bool SafeSeqModify()
+	bool SafeSeqModi   fy()
 	{
 		
 		
@@ -160,6 +170,7 @@ pthread_mutex_lock(&mutex1);
 		   }       
   int main()
   {
+  	  printf("\t\t\t \t\t\t Banker\'s algorithm\n");
   	
   	    printf("Enter available VECTOR\n");
             
@@ -213,7 +224,7 @@ pthread_mutex_lock(&mutex1);
         for( i=0; i<N; i++) safeSeq[i] = -1;
 
         if(!SafeSeqModify()) {
-                printf("\nUnsafe State! The processes leads the system to a unsafe state.\n\n");
+                printf("\nUnsafe State! The processes leads the system to a unsafe state, which may lead to deadlock.\n\n");
               exit(-1);
         }
 
