@@ -107,7 +107,7 @@ pthread_mutex_lock(&mutex1);
 	for( i=0; i<M; i++)
                 avail[i] += alloc[p][i];
 
-        printf("\n\tNow Available : ");
+        printf("\n\tNow Available =  Available + Allocated : ");
         for( i=0; i<M; i++)
                 printf("%3d", avail[i]);
         printf("\n\n");
@@ -122,7 +122,7 @@ pthread_mutex_lock(&mutex1);
         sleep(10);
 	//pthread_exit(NULL);	
 	}   
-	bool SafeSeqModi   fy()
+	bool SafeSeqModify()
 	{
 		
 		
